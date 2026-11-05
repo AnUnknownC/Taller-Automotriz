@@ -1,0 +1,7 @@
+# Envía todo a public/: app/, config/, storage/ y .env nunca se sirven directamente.
+Options -Indexes
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^$ public/ [L]
+    RewriteRule ^((?!public/).*)$ public/$1 [L,NC]
+</IfModule>
